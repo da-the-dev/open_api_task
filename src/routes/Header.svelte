@@ -11,8 +11,11 @@
 			<li aria-current={$page.url.pathname === '/' ? 'page' : undefined}>
 				<a href="/">VK authorization</a>
 			</li>
-			<li aria-current={$page.url.pathname === '/localAuthorization' ? 'page' : undefined}>
-				<a href="/localAuthorization">Local Authorization</a>
+			<li aria-current={$page.url.pathname === '/login' ? 'page' : undefined}>
+				<a href="/login">Sign Up</a>
+			</li>
+			<li aria-current={$page.url.pathname === '/signin' ? 'page' : undefined}>
+				<a href="/signin">Sign In</a>
 			</li>
 		</ul>
 		<svg viewBox="0 0 2 3" aria-hidden="true">
