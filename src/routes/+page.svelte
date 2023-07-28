@@ -1,26 +1,6 @@
 <script>
+	import vk from '$lib/shared/stores/vk'
 	import Vk from '$lib/icons/vk.svelte'
-
-	// Import the functions you need from the SDKs you need
-	import { initializeApp } from "firebase/app";
-	import { getAuth } from "firebase/auth";
-	// TODO: Add SDKs for Firebase products that you want to use
-	// https://firebase.google.com/docs/web/setup#available-libraries
-
-	// Your web app's Firebase configuration
-	// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-	const firebaseConfig = {
-	apiKey: "AIzaSyDh7419NhN6hfdI9XAxFSHHzB_mRPp-6K4",
-	authDomain: "openapi-91af8.firebaseapp.com",
-	projectId: "openapi-91af8",
-	storageBucket: "openapi-91af8.appspot.com",
-	messagingSenderId: "237915812369",
-	appId: "1:237915812369:web:327998c34e5b8dcedeb7b0",
-	measurementId: "G-G2M7TQ3BG8"
-	};
-
-	// Initialize Firebase
-	const app = initializeApp(firebaseConfig);
 </script>
 
 <svelte:head>
@@ -29,15 +9,14 @@
 </svelte:head>
 
 <section>
-	<h1>
-		You can authorize via VK
-	</h1>
+	{#if $vk.user_id != -1}
+		<p>{$vk.user_id}</p>
+	{/if}
 	<div class="auth-b">
-		<button class="vk-auth-button">
+		<button class="vk-auth-button" on:click={() => window.location.replace('https://oauth.vk.com/authorize?client_id=51717321&redirect_uri=https://open-api-task.vercel.app/verify&scope=12&display=page&response_type=token')}>
 			<Vk/>
 		</button>
 	</div>
-
 </section>
 
 <style>
